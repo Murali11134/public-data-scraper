@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  scraper:
+    build: .
+    volumes:
+      - ./output:/app/output
+      - ./logs:/app/logs
+    environment:
+      - LOG_LEVEL=INFO
+    command: ["python", "-m", "public_data_scraper", "--all", "--skip-browser"]

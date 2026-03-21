@@ -1,0 +1,60 @@
+[build-system]
+requires      = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name            = "public-data-scraper"
+version         = "1.0.0"
+description     = "Portfolio project: web scraping with 4 techniques against public data sources."
+readme          = "README.md"
+requires-python = ">=3.10"
+license         = { text = "MIT" }
+
+keywords = ["scraping", "data", "portfolio", "beautifulsoup", "selenium", "pandas", "pdfplumber"]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+]
+
+dependencies = [
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "pandas>=2.0",
+    "selenium>=4.18",
+    "webdriver-manager>=4.0",
+    "pdfplumber>=0.10",
+    "openpyxl>=3.1",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+public-data-scraper = "public_data_scraper.__main__:main"
+
+[project.urls]
+Homepage   = "https://github.com/Murali11134/T-Mart"
+Repository = "https://github.com/Murali11134/T-Mart"
+
+[tool.setuptools.packages.find]
+where   = ["."]
+include = ["public_data_scraper*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts   = "-v --tb=short"
+
+[tool.ruff]
+target-version = "py310"
+line-length    = 100
